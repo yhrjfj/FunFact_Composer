@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -20,15 +21,16 @@ import androidx.compose.ui.unit.sp
 import com.yhr.jfj.funfact_composer.R
 
 @Composable
-fun TopBar() {
+fun TopBar(value: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .height(50.dp)
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "Hi there",
+            text = value,
             color = Color.Black,
             fontSize = 24.sp,
             fontWeight = FontWeight.Medium
@@ -45,5 +47,5 @@ fun TopBar() {
 @Preview(showBackground = true)
 @Composable
 fun TopBarPreview() {
-    TopBar()
+    TopBar("")
 }
