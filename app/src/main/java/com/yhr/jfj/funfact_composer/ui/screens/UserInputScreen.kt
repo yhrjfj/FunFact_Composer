@@ -2,26 +2,50 @@ package com.yhr.jfj.funfact_composer.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.yhr.jfj.funfact_composer.ui.TextComponent
+import com.yhr.jfj.funfact_composer.ui.TopBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserInputScreen(navController: NavHostController) {
-    Scaffold(modifier = Modifier
-        .fillMaxSize()
-        .clickable {
-            navController.navigate(Routes.WELCOME_SCREEN)
-        }) {
-        Text(text = Routes.USER_INPUT_SCREEN)
+    Scaffold(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            TopBar("Hey there \uD83D\uDE0A")
+
+            TextComponent(
+                textValue = "Let's learn about you",
+                textSize = 24.sp
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            TextComponent(
+                textValue = "This app will prepare a details page based on your input provided by you !",
+                textSize = 18.sp
+            )
+        }
     }
 }
 
