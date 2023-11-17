@@ -16,10 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yhr.jfj.funfact_composer.R
 
+// TopBar
 @Composable
 fun TopBar(value: String) {
     Row(
@@ -48,4 +50,24 @@ fun TopBar(value: String) {
 @Composable
 fun TopBarPreview() {
     TopBar("")
+}
+
+// Text
+@Composable
+fun TextComponent(
+    textValue: String,
+    textSize: TextUnit,
+    colorValue: Color = Color.Black
+){
+    Text(
+        text = textValue,
+        fontSize = textSize,
+        color = colorValue,
+        fontWeight = FontWeight.Light
+    )
+}
+@Preview(showBackground = true)
+@Composable
+fun TextComponentPreview(){
+    TextComponent(textValue = "Shadow Light", textSize = 18.sp)
 }
