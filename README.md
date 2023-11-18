@@ -1,6 +1,6 @@
 # Learn
 - Navigation between 2 page
-- Dependancy </br>
+- Dependencies </br>
 
     // Navigation </br>
     val nav_version = "2.7.5" </br>
