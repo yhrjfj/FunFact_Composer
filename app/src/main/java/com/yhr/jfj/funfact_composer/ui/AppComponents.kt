@@ -83,14 +83,17 @@ fun TextComponentPreview() {
 // Text Field
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TextFieldComponent() {
-    val currentValue by remember {
+fun TextFieldComponent(onTextChange: (name: String) -> Unit) {
+    var currentValue by remember {
         mutableStateOf("")
     }
     OutlinedTextField(
-        modifier = Modifier.fillMaxWidth() ,
+        modifier = Modifier.fillMaxWidth(),
         value = currentValue,
-        onValueChange = {},
+        onValueChange = {
+            currentValue = it
+            onTextChange(it)
+        },
         placeholder = {
             Text(
                 text = "Enter your name",
@@ -106,5 +109,5 @@ fun TextFieldComponent() {
 @Preview(showBackground = true)
 @Composable
 fun TextFieldComponentPreview() {
-    TextFieldComponent()
+    TextFieldComponent(onTextChange = {})
 }
