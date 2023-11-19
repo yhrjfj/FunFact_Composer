@@ -48,6 +48,9 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
 
             Spacer(modifier = Modifier.height(60.dp))
 
+            // Enter name
+            TextComponent(textValue = "Name", textSize = 18.sp)
+            Spacer(modifier = Modifier.height(10.dp))
             TextFieldComponent(onTextChange = {
                 userInputViewModel.onEvent(
                     UserDataUiEvents.UserNameEntered(it)
