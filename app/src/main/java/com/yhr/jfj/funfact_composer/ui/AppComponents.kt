@@ -8,8 +8,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -124,3 +127,52 @@ fun TextFieldComponent(onTextChange: (name: String) -> Unit) {
 fun TextFieldComponentPreview() {
     TextFieldComponent(onTextChange = {})
 }
+
+// Component for add image
+@Composable
+fun AnimalCard(image: Int) {
+    Card(
+        modifier = Modifier
+            .padding(24.dp)
+            .size(130.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Image(
+            modifier = Modifier
+                .padding(16.dp)
+                .wrapContentHeight()
+                .wrapContentHeight(),
+            painter = painterResource(id = image),
+            contentDescription = "Animal Picture"
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun AnimalCardPreview() {
+    AnimalCard(image = R.drawable.cat)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
