@@ -2,8 +2,10 @@ package com.yhr.jfj.funfact_composer.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,7 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.yhr.jfj.funfact_composer.R
 import com.yhr.jfj.funfact_composer.data.UserDataUiEvents
+import com.yhr.jfj.funfact_composer.ui.AnimalCard
 import com.yhr.jfj.funfact_composer.ui.TextComponent
 import com.yhr.jfj.funfact_composer.ui.TextFieldComponent
 import com.yhr.jfj.funfact_composer.ui.TopBar
@@ -56,6 +60,33 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
                     UserDataUiEvents.UserNameEntered(it)
                 )
             })
+
+            // Add picture for select
+            Spacer(modifier = Modifier.height(20.dp))
+            TextComponent(textValue = "What do you like?", textSize = 18.sp)
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                // Image for cat
+                AnimalCard(
+                    image = R.drawable.cat,
+                    animalSelected = { animalName ->
+                        userInputViewModel.onEvent(UserDataUiEvents.AnimalSelected(animalName))
+                    },
+                    selected = userInputViewModel.uiState.value.animalSelected == "Cat"
+                )
+
+                // Image for dog
+                AnimalCard(
+                    image = R.drawable.dog,
+                    animalSelected = { animalName ->
+                        userInputViewModel.onEvent(UserDataUiEvents.AnimalSelected(animalName))
+                    },
+                    selected = userInputViewModel.uiState.value.animalSelected == "Dog"
+                )
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ import com.yhr.jfj.funfact_composer.data.UserDataUiEvents
 import com.yhr.jfj.funfact_composer.data.UserInputScreenState
 
 class UserInputViewModel : ViewModel() {
-    private var uiState = mutableStateOf(UserInputScreenState())
+    var uiState = mutableStateOf(UserInputScreenState())
 
     fun onEvent(event: UserDataUiEvents) {
         when (event) {
